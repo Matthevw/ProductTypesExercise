@@ -43,21 +43,16 @@ class Product
         }
 
     public function addProduct() {
+        
         $product = $this->productModel->create();
 
-        // $exampleProduct = [
-        //     "sku" => "9876",
-        //     "name" => "aligator",
-        //     "price" => "90",
-        //     "custom_data" => "Green"
-        // ];
         $sku = '73827';
         
         $product->setSku($sku)
             ->setName('Aligator')
             ->setPrice('900')
             ->setVisibility(4)
-            ->setStatus(1); // zamiast addData
+            ->setStatus(1);
 
         $this->productResourceModel->save($product);
 
@@ -74,7 +69,5 @@ class Product
             print("Nie ma takiego produktu w bazie");
             $this->logger->info("Nie ma takiego produktu w bazie");
         }
-
-        
     }
 }
